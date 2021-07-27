@@ -10,14 +10,14 @@ img_files_src = []
 
 for file in img_files :
     if 'Template' in file :
-        Template  = file
+        Temp  = file
     else:
         img_files_src.append(file)        
            
 
-def matcing_moment_in_image (Template, img_files_src) :    
+def matcing_moment_in_image (Temp, img_files_src) :    
 
-    obj = cv2.imread(Template, cv2.IMREAD_GRAYSCALE)    
+    obj = cv2.imread(Temp, cv2.IMREAD_GRAYSCALE)    
     src = cv2.imread(img_files_src, cv2.IMREAD_GRAYSCALE)
     result = cv2.imread(img_files_src)
 
@@ -56,7 +56,7 @@ img_H = 520
 img_V = 280
 
 for i in range(len(img_files_src)) :
-    cropped_img = matcing_moment_in_image(Template, img_files_src[i])
+    cropped_img = matcing_moment_in_image(Temp, img_files_src[i])
     im_resize = cv2.resize(cropped_img, dsize=(img_H, img_V), interpolation=cv2.INTER_CUBIC)
     cv2.imwrite("Result_" + img_files_src[i] + ".png", im_resize)
 
